@@ -10,32 +10,55 @@ import UIKit
 class ToDoTableViewController: UITableViewController {
 
   //MARK: - Properties
-  var toDos: [ToDo] = []
+  var toDoCDs: [ToDoCD] = []
 
+  //MARK: - View lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    getToDoCDs()
+  }
+
+  //MARK: - Methods
+  func getToDoCDs() {
+    if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+      if let toDosFromCoreData = try? context.fetch(ToDoCD.fetchRequest()) {
+        if let toDos = toDosFromCoreData as? [ToDoCD] {
+          toDoCDs = toDos
+          tableView.reloadData()
+        }
+      }
+    }
+  }
+
   // MARK: - Table view data source
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return toDos.count
+    return toDoCDs.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell()
-    let selectedToDo = toDos[indexPath.row]
+    let selectedToDo = toDoCDs[indexPath.row]
     if selectedToDo.priority == 1 {
-      cell.textLabel?.text = "❗️" + selectedToDo.name
+      if let name = selectedToDo.name {
+        cell.textLabel?.text = "❗️" + name
+      }
     } else if selectedToDo.priority == 2 {
-      cell.textLabel?.text = "‼️" + selectedToDo.name
+      if let name = selectedToDo.name {
+        cell.textLabel?.text = "‼️" + name
+      }
     } else {
-      cell.textLabel?.text = selectedToDo.name
+      if let name = selectedToDo.name {
+        cell.textLabel?.text = name
+      }
     }
     return cell
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let selectedToDo = toDos[indexPath.row]
+    let selectedToDo = toDoCDs[indexPath.row]
     performSegue(withIdentifier: "moveToDetails", sender: selectedToDo)
   }
 
@@ -45,8 +68,8 @@ class ToDoTableViewController: UITableViewController {
       addToDoTableViewController.toDoTableViewController = self
     }
     if let detailToDoViewController = segue.destination as? ToDoDetailsViewController {
-      if let selectedToDo = sender as? ToDo {
-        detailToDoViewController.toDo = selectedToDo
+      if let selectedToDo = sender as? ToDoCD {
+        detailToDoViewController.toDoCD = selectedToDo
       }
     }
   }
