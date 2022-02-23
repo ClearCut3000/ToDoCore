@@ -100,52 +100,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YpL-dN-FYS">
-                                <rect key="frame" x="10" y="160" width="394" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHG-5P-cZ0">
-                                <rect key="frame" x="177" y="214" width="60.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dtX-1o-Qh1">
-                                <rect key="frame" x="10" y="258" width="394" height="32"/>
-                                <segments>
-                                    <segment title="None"/>
-                                    <segment title="❗️"/>
-                                    <segment title="‼️"/>
-                                </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFO-3l-LrE">
-                                <rect key="frame" x="182" y="321" width="50" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Add"/>
-                                <connections>
-                                    <action selector="addTapped:" destination="tq6-CX-ifz" eventType="touchUpInside" id="tFj-ec-y2d"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="lex-sW-6mS">
+                                <rect key="frame" x="16" y="172" width="382" height="674"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="15p-gC-iWL">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="260"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YpL-dN-FYS">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHG-5P-cZ0">
+                                                <rect key="frame" x="0.0" y="79" width="382" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dtX-1o-Qh1">
+                                                <rect key="frame" x="0.0" y="148" width="382" height="32"/>
+                                                <segments>
+                                                    <segment title="None"/>
+                                                    <segment title="❗️"/>
+                                                    <segment title="‼️"/>
+                                                </segments>
+                                            </segmentedControl>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFO-3l-LrE">
+                                                <rect key="frame" x="0.0" y="224" width="382" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Add"/>
+                                                <connections>
+                                                    <action selector="addTapped:" destination="tq6-CX-ifz" eventType="touchUpInside" id="tFj-ec-y2d"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YSn-vi-hT0">
+                                        <rect key="frame" x="0.0" y="292" width="382" height="382"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wrm-yj-50m">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="382"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="wrm-yj-50m" secondAttribute="height" multiplier="1:1" id="cmH-gs-Fnc"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <variation key="heightClass=compact" axis="horizontal"/>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0ih-S8-u7Q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YpL-dN-FYS" firstAttribute="leading" secondItem="0ih-S8-u7Q" secondAttribute="leading" constant="10" id="4Sz-DR-U9U"/>
-                            <constraint firstItem="dtX-1o-Qh1" firstAttribute="top" secondItem="qHG-5P-cZ0" secondAttribute="bottom" constant="20" id="4se-bA-YBZ"/>
-                            <constraint firstItem="dtX-1o-Qh1" firstAttribute="centerX" secondItem="p4v-hU-d2r" secondAttribute="centerX" id="5ML-9b-cZS"/>
-                            <constraint firstItem="YpL-dN-FYS" firstAttribute="top" secondItem="0ih-S8-u7Q" secondAttribute="top" constant="20" id="DhS-n5-GoE"/>
-                            <constraint firstItem="YFO-3l-LrE" firstAttribute="centerX" secondItem="p4v-hU-d2r" secondAttribute="centerX" id="RWc-lb-Oaw"/>
-                            <constraint firstItem="0ih-S8-u7Q" firstAttribute="trailing" secondItem="YpL-dN-FYS" secondAttribute="trailing" constant="10" id="TsN-cc-Vza"/>
-                            <constraint firstItem="qHG-5P-cZ0" firstAttribute="centerX" secondItem="p4v-hU-d2r" secondAttribute="centerX" id="Ul0-Oz-jcH"/>
-                            <constraint firstItem="0ih-S8-u7Q" firstAttribute="trailing" secondItem="dtX-1o-Qh1" secondAttribute="trailing" constant="10" id="Y06-1b-sYj"/>
-                            <constraint firstItem="dtX-1o-Qh1" firstAttribute="leading" secondItem="0ih-S8-u7Q" secondAttribute="leading" constant="10" id="abE-S7-cgE"/>
-                            <constraint firstItem="qHG-5P-cZ0" firstAttribute="top" secondItem="YpL-dN-FYS" secondAttribute="bottom" constant="20" id="eZ5-8o-drV"/>
-                            <constraint firstItem="YFO-3l-LrE" firstAttribute="top" secondItem="dtX-1o-Qh1" secondAttribute="bottom" constant="32" id="ujc-6m-Ckb"/>
+                            <constraint firstItem="lex-sW-6mS" firstAttribute="top" secondItem="0ih-S8-u7Q" secondAttribute="top" constant="32" id="9bU-oe-d0h"/>
+                            <constraint firstItem="0ih-S8-u7Q" firstAttribute="trailing" secondItem="lex-sW-6mS" secondAttribute="trailing" constant="16" id="Des-70-zGp"/>
+                            <constraint firstItem="0ih-S8-u7Q" firstAttribute="bottom" secondItem="lex-sW-6mS" secondAttribute="bottom" constant="16" id="GDa-32-sQs"/>
+                            <constraint firstItem="lex-sW-6mS" firstAttribute="leading" secondItem="p4v-hU-d2r" secondAttribute="leading" constant="16" id="IgQ-6X-jF6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="eDt-Uk-GAo"/>
+                    <navigationItem key="navigationItem" id="eDt-Uk-GAo">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="Nke-t1-4Wz">
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <connections>
+                                    <action selector="cameraTapped:" destination="tq6-CX-ifz" id="31M-71-BMD"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="organize" id="DYV-1D-yTI">
+                                <color key="tintColor" red="0.033224773559999997" green="0.35846702339999997" blue="0.0540452565" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="mediaFolderTapped:" destination="tq6-CX-ifz" id="63Z-G6-G1Z"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="wrm-yj-50m" id="8cf-jb-77b"/>
                         <outlet property="nameTextField" destination="YpL-dN-FYS" id="FWs-p1-Itv"/>
                         <outlet property="prioritySegment" destination="dtX-1o-Qh1" id="b0n-FY-kKb"/>
                     </connections>
@@ -176,6 +208,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

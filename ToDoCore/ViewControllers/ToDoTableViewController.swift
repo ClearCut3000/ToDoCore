@@ -54,12 +54,26 @@ class ToDoTableViewController: UITableViewController {
         cell.textLabel?.text = name
       }
     }
+    if let data = selectedToDo.image {
+      cell.imageView?.image = UIImage(data: data)
+    }
     return cell
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let selectedToDo = toDoCDs[indexPath.row]
     performSegue(withIdentifier: "moveToDetails", sender: selectedToDo)
+  }
+
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+        let selectedToDo = toDoCDs[indexPath.row]
+        context.delete(selectedToDo)
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        getToDoCDs()
+      }
+    }
   }
 
   //MARK: - Navigation

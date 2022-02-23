@@ -7,18 +7,29 @@
 
 import UIKit
 
-class AddToDoViewController: UIViewController {
+class AddToDoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
   //MARK: - Properties
   var toDoTableViewController: ToDoTableViewController? = nil
+  var picker = UIImagePickerController()
 
   //MARK: - Outlets
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var prioritySegment: UISegmentedControl!
+  @IBOutlet weak var imageView: UIImageView!
 
   //MARK: - View lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    picker.delegate = self
+  }
+
+  //MARK: - UIImagePickerController Methods
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    if let image = info[.originalImage] as? UIImage {
+      imageView.image = image
+    }
+    picker.dismiss(animated: true, completion: nil)
   }
 
   // MARK: - Actions
@@ -29,8 +40,19 @@ class AddToDoViewController: UIViewController {
       if let name = nameTextField.text {
         newToDo.name = name
       }
+      newToDo.image = imageView.image?.jpegData(compressionQuality: 1.0)
       (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-      navigationController?.popViewController(animated: true)
     }
+    navigationController?.popViewController(animated: true)
+  }
+
+  @IBAction func cameraTapped(_ sender: Any) {
+    picker.sourceType = .camera
+    present(picker, animated:  true, completion: nil)
+  }
+
+  @IBAction func mediaFolderTapped(_ sender: Any) {
+    picker.sourceType = .photoLibrary
+    present(picker, animated: true, completion: nil)
   }
 }
