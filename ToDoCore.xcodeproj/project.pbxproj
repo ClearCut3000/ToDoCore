@@ -16,6 +16,7 @@
 		363F1F4127C40FAB00A456B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 363F1F3F27C40FAB00A456B7 /* LaunchScreen.storyboard */; };
 		363F1F4B27C410CA00A456B7 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F1F4A27C410CA00A456B7 /* ToDoTableViewController.swift */; };
 		363F1F4D27C414B900A456B7 /* AddToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363F1F4C27C414B900A456B7 /* AddToDoViewController.swift */; };
+		36BFA10B27C8086B00F86D42 /* screen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 36BFA10A27C8086B00F86D42 /* screen.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		363F1F4227C40FAB00A456B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		363F1F4A27C410CA00A456B7 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		363F1F4C27C414B900A456B7 /* AddToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoViewController.swift; sourceTree = "<group>"; };
+		36BFA10A27C8086B00F86D42 /* screen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = screen.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,12 +94,21 @@
 		363F1F3027C40FA600A456B7 /* ToDoCore */ = {
 			isa = PBXGroup;
 			children = (
+				36BFA10927C8049E00F86D42 /* Screenshots */,
 				360427D027C5308100F08A57 /* Storyboards */,
 				360427D327C530CE00F08A57 /* SupportedFiles */,
 				363F1F3A27C40FA600A456B7 /* ToDoCore.xcdatamodeld */,
 				360427D227C530BE00F08A57 /* ViewControllers */,
 			);
 			path = ToDoCore;
+			sourceTree = "<group>";
+		};
+		36BFA10927C8049E00F86D42 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				36BFA10A27C8086B00F86D42 /* screen.gif */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			files = (
 				363F1F4127C40FAB00A456B7 /* LaunchScreen.storyboard in Resources */,
 				363F1F3E27C40FAB00A456B7 /* Assets.xcassets in Resources */,
+				36BFA10B27C8086B00F86D42 /* screen.gif in Resources */,
 				363F1F3927C40FA600A456B7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

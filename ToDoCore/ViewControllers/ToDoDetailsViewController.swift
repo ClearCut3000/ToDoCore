@@ -14,6 +14,7 @@ class ToDoDetailsViewController: UIViewController {
 
   //MARK: - Outlets
   @IBOutlet weak var toDoLabel: UILabel!
+  @IBOutlet weak var detailImageView: UIImageView!
 
   //MARK: - View lifecycle
   override func viewDidLoad() {
@@ -31,6 +32,9 @@ class ToDoDetailsViewController: UIViewController {
         if let name = toDo.name {
           toDoLabel.text = name
         }
+      }
+      if let data = toDo.image {
+        detailImageView.image = UIImage(data: data)
       }
     }
   }

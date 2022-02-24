@@ -47,12 +47,24 @@ class AddToDoViewController: UIViewController, UIImagePickerControllerDelegate, 
   }
 
   @IBAction func cameraTapped(_ sender: Any) {
+    if UIImagePickerController.isSourceTypeAvailable(.camera) {
     picker.sourceType = .camera
     present(picker, animated:  true, completion: nil)
+    } else {
+      let alert = UIAlertController(title: "Unable to access the camera!", message: nil, preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+      present(alert, animated: true)
+    }
   }
 
   @IBAction func mediaFolderTapped(_ sender: Any) {
-    picker.sourceType = .photoLibrary
-    present(picker, animated: true, completion: nil)
+    if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+      picker.sourceType = .photoLibrary
+      present(picker, animated: true, completion: nil)
+    } else {
+      let alert = UIAlertController(title: "Unable to access the photo library!", message: nil, preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+      present(alert, animated: true)
+    }
   }
 }

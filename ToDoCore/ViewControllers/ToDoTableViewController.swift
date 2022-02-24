@@ -22,7 +22,7 @@ class ToDoTableViewController: UITableViewController {
   }
 
   //MARK: - Methods
-  func getToDoCDs() {
+  private func getToDoCDs() {
     if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
       if let toDosFromCoreData = try? context.fetch(ToDoCD.fetchRequest()) {
         if let toDos = toDosFromCoreData as? [ToDoCD] {
@@ -31,6 +31,14 @@ class ToDoTableViewController: UITableViewController {
         }
       }
     }
+  }
+
+  private func redrawImage(image: UIImage, scaledToSize newSize: CGSize) -> UIImage {
+    UIGraphicsBeginImageContext(newSize)
+    image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+    let newImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return newImage!.withRenderingMode(.alwaysOriginal)
   }
 
   // MARK: - Table view data source
@@ -55,7 +63,7 @@ class ToDoTableViewController: UITableViewController {
       }
     }
     if let data = selectedToDo.image {
-      cell.imageView?.image = UIImage(data: data)
+      cell.imageView?.image = redrawImage(image: UIImage(data: data)!, scaledToSize: CGSize(width: cell.frame.width, height: cell.frame.width))
     }
     return cell
   }
